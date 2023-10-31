@@ -1,7 +1,7 @@
 "use client";
 import { uploadToS3 } from "@/lib/s3";
 import { useMutation } from "@tanstack/react-query";
-import { Inbox, Loader2 } from "lucide-react";
+import { Inbox, Loader2, Cloud } from "lucide-react";
 import React from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
@@ -79,13 +79,18 @@ const FileUpload = () => {
             {/* loading state */}
             <Loader2 className="h-10 w-10 text-blue-500 animate-spin" />
             <p className="mt-2 text-sm text-slate-400">
-              Spilling Tea to GPT...
+              Elaborazione del PDF in corso...
             </p>
           </>
         ) : (
           <>
-            <Inbox className="w-10 h-10 text-blue-500" />
-            <p className="mt-2 text-sm text-slate-400">Drop PDF Here</p>
+            <div className="flex flex-col items-center justify-center pt-5 pb-6">
+              <Cloud className="h-10 w-10 text-blue-500 mb-2" />
+              <p className="mb-2 text-sm text-zinc-700">
+                <span className="font-semibold">Clicca qui per caricare</span>
+              </p>
+              <p className="text-xs text-zinc-500"></p>
+            </div>
           </>
         )}
       </div>
